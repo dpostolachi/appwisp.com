@@ -1,0 +1,72 @@
+## GET /api/1.0/playstore/app/:id
+
+This endpoint retrieves details of an apps from the Play Store based on id.
+
+### Parameters
+
+- **id** (string): package_name from Play Store.
+
+&nbsp;
+
+### Request Example
+```bash
+curl --location --globoff 'https://appwisp.com/api/1.0/playstore/app/com.facebook.katana'
+```
+
+&nbsp;
+
+### Response Example (200)
+
+```json
+{
+    "free": true,
+    "version": "VARY",
+    "description": "Where real people propel your curiosity. Whether you’re thrifting gear, showing a reel to that group who gets it, or sharing laughs over fun images reimagined by AI, Facebook helps you make things happen like no other social network.\n\nExplore and expand your interests: \n* Ask Meta AI to search topics that matter to you, and get instant results more interactive than just text\n* Shop Marketplace for deals and hidden gems to nurture your hobbies\n* Personalize your Feed to see more of what you like, less of what you don’t\n* Dive into reels and videos for how-to’s or quick entertainment\n\nConnect with people and communities:\n* Join groups to learn tips from real people who’ve been there, done that\n* Turn on sharing to Instagram to save time\n* Privately message relatable posts that only your BFF will get or that Reels trend everyone’s talking about\n\nShare your world:\n* Use generative AI to delight friends with custom images, or just get help writing posts\n* Customize your profile to choose how you show up and who sees your posts\n* Effortlessly create reels from trending templates, or showcase your creativity with a full suite of editing tools\n* Capture moments on the fly with stories\n\nSome features may not be available in your country or region. \n\nTerms & Policies: https://www.facebook.com/policies_center Consumer Health \nPrivacy Policy: https://www.facebook.com/privacy/policies/health.\n\nLearn how we're working to keep you safe across Meta technologies at the Meta Safety Center: https://about.meta.com/actions/safety",
+    "title": "Facebook",
+    "category": {
+        "id": "SOCIAL",
+        "name": "Social"
+    },
+    "currency": "USD",
+    "package_name": "com.facebook.katana",
+    "installs": "5,000,000,000+",
+    "ad_supported": true,
+    "android_max_version": "VARY",
+    "android_version": "VARY",
+    "android_version_text": "Varies with device",
+    "content_rating": "Teen",
+    "content_rating_description": null,
+    "developer": {
+        "id": "Meta+Platforms,+Inc.",
+        "name": "Meta Platforms, Inc.",
+        "address": "1 Hacker Way\nMenlo Park, CA 94025",
+        "email": "android-support@fb.com",
+        "country_code": "US",
+        "country_name": "United States"
+    },
+    "header_image": "https://play-lh.googleusercontent.com/GQXolHad8JJu_qR90bF9krWLP66RimpNgskSMXEcmoZ1znWfgsB8uCtM1uGC0n_lMA",
+    "icon": "https://play-lh.googleusercontent.com/KCMTYuiTrKom4Vyf0G4foetVOwhKWzNbHWumV73IXexAIy5TTgZipL52WTt8ICL-oIo",
+    "is_available_in_play_pass": false,
+    "max_installs": 9561506047,
+    "min_installs": 5000000000,
+    "offers_iap": true,
+    "original_price": 0.0,
+    "price": 0.0,
+    "ratings": 144303220,
+    "recent_changes": null,
+    "released": null,
+    "reviews": 4222957,
+    "score": 3.8796444,
+    "screenshots": [
+        "https://play-lh.googleusercontent.com/yltemK6xddx3AdaqfoI2RYFB1rHDpDxkZZl8I_3uWqOR_sGAj20sCE0a1hS_zL59mWs",
+        "https://play-lh.googleusercontent.com/uPC3VsBbDU5IakuOsLLFvFppuKyV6IDEIrX8EZRlR4EiRisRuSNrYCxhc30HiduWdkVi",
+        "https://play-lh.googleusercontent.com/LqFs9L14viQoszsQtSqqDVk3m4bKXlDSYUIYii0e7U_y0oXxASPtoxj2Pt4gV8KHDDU",
+        "https://play-lh.googleusercontent.com/DH_oPwYKAm6_3xjvfG8yio4xQayew62B658_4w3nIyxGqRiQncG8jX3fa3qmRZ_EQxU",
+        "https://play-lh.googleusercontent.com/3aTPofuVkgP4XlICCyVPZgp8ZGDXPeezeZgNh4YtCY6VUNqCg06AXYGPWRvAq-jF0fk",
+        "https://play-lh.googleusercontent.com/ioi2RTrBkBtTvlXtksF9oOmmEDaOswgm02oIg6KRh5QsmdXBTUxCe7zeOCglCeib_Lxy",
+        "https://play-lh.googleusercontent.com/b2kukObx5S3NrTPDmSEz3_GtiZUkhhXErUQgE4gBxbvYKVyJH3M19ADpkCO4UHztVg",
+        "https://play-lh.googleusercontent.com/WGvXMI3Vshmv6IMws7YEkzXUrV1vOh-P7Jv8cuSR8Xwm52fxjd-V4OhTKTWTqEZaIik"
+    ],
+    "updated": "2024-05-09T15:20:27Z"
+}
+```

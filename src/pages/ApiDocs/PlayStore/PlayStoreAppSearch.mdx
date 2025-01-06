@@ -1,0 +1,81 @@
+## GET /api/1.0/appstore/apps
+
+This endpoint retrieves a list of apps from the Play Store based on various search parameters.
+
+### Parameters
+
+- **query** (string)(optional): The search query to filter apps by name or description.
+- **offset** (integer)(optional): The number of records to skip for pagination.
+- **take** (integer)(optional): The number of records to return.
+- **source** (string)(optional): The source of the data. This could be a specific data provider or database.
+- **min_installs** (integer)(optional): The minimum number of installs to filter apps.
+- **max_installs** (integer)(optional): The maximum number of installs to filter apps.
+- **categories[]** (array of strings)(optional): The categories to filter apps. Each category should be a string.
+- **sdks[]** (array of strings)(optional): The SDKs to filter apps. SDK slug or ID should be used.
+
+&nbsp;
+
+### Request Example
+```bash
+curl --location --globoff 'https://appwisp.com/api/1.0/playstore/apps?offset=0&take=30&min_installs=100000&query=facebook&categories[]=SOCIAL'
+```
+
+&nbsp;
+
+### Response Example (200)
+
+```json
+{
+    "list": [
+        {
+            "id": "com.facebook.katana",
+            "title": "Facebook",
+            "source": "playstore",
+            "api_url": "https://appwisp.com/api/1.0/playstore/app/com.facebook.katana",
+            "package_name": "com.facebook.katana",
+            "icon": "https://play-lh.googleusercontent.com/KCMTYuiTrKom4Vyf0G4foetVOwhKWzNbHWumV73IXexAIy5TTgZipL52WTt8ICL-oIo",
+            "store_url": "https://play.google.com/store/apps/details?id=com.facebook.katana"
+        },
+        {
+            "id": "com.facebook.lite",
+            "title": "Facebook Lite",
+            "source": "playstore",
+            "api_url": "https://appwisp.com/api/1.0/playstore/app/com.facebook.lite",
+            "package_name": "com.facebook.lite",
+            "icon": "https://play-lh.googleusercontent.com/U202Yto9o6IT1ZA8bgigA5q4nIzvu0S9ztl2d0WQSj6Iw0hIw5W7SIAnH0U2-Kk3nao",
+            "store_url": "https://play.google.com/store/apps/details?id=com.facebook.lite"
+        },
+        {
+            "id": "com.tikachu.tiktok.tikfame.facebook.twitter.instagram.followers.likes.view.shares.buy.fans.tikpopular.tikfans",
+            "title": "TikFans - Get Real Followers",
+            "source": "playstore",
+            "api_url": "https://appwisp.com/api/1.0/playstore/app/com.tikachu.tiktok.tikfame.facebook.twitter.instagram.followers.likes.view.shares.buy.fans.tikpopular.tikfans",
+            "package_name": "com.tikachu.tiktok.tikfame.facebook.twitter.instagram.followers.likes.view.shares.buy.fans.tikpopular.tikfans",
+            "icon": "https://play-lh.googleusercontent.com/MfNyMbPchfyDssfpnN3Y65NHVlaUPAeKja4HjN2tFN8n10JH-6m4r7wgIhRFGxZ7-Q",
+            "store_url": "https://play.google.com/store/apps/details?id=com.tikachu.tiktok.tikfame.facebook.twitter.instagram.followers.likes.view.shares.buy.fans.tikpopular.tikfans"
+        },
+        {
+            "id": "com.atomic.apps.facebook.statuses",
+            "title": "Status Quotes Collection",
+            "source": "playstore",
+            "api_url": "https://appwisp.com/api/1.0/playstore/app/com.atomic.apps.facebook.statuses",
+            "package_name": "com.atomic.apps.facebook.statuses",
+            "icon": "https://play-lh.googleusercontent.com/9KMbFnzERJyZap_bp_--YQtpGqs7r02LNEw6WFRX309Cx3mT8qHLAuD7DoR9wYgg6Q",
+            "store_url": "https://play.google.com/store/apps/details?id=com.atomic.apps.facebook.statuses"
+        },
+        {
+            "id": "com.htc.sense.socialnetwork.facebook",
+            "title": "HTC Social Plugin - Facebook",
+            "source": "playstore",
+            "api_url": "https://appwisp.com/api/1.0/playstore/app/com.htc.sense.socialnetwork.facebook",
+            "package_name": "com.htc.sense.socialnetwork.facebook",
+            "icon": "https://play-lh.googleusercontent.com/5D6zza2QsN7yRF_VdAGpJDmajyq06bxRhj0Vbqajk3I9_CdGPPZbaa06M0ZiQDW0Lg",
+            "store_url": "https://play.google.com/store/apps/details?id=com.htc.sense.socialnetwork.facebook"
+        }
+    ],
+    "offset": 0,
+    "ok": true,
+    "has_more": true,
+    "next_page": "https://appwisp.com/api/1.0/playstore/apps?offset=5&take=5&query=facebook&categories[]=SOCIAL&min_installs=100000"
+}
+```

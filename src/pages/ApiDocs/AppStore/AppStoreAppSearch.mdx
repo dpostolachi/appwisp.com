@@ -1,0 +1,81 @@
+## GET /api/1.0/appstore/apps
+
+This endpoint retrieves a list of apps from the App Store based on various search parameters.
+
+### Parameters
+
+- **query** (string)(optional): The search query to filter apps by name or description.
+- **offset** (integer)(optional): The number of records to skip for pagination.
+- **take** (integer)(optional): The number of records to return.
+- **source** (string)(optional): The source of the data. This could be a specific data provider or database.
+- **min_installs** (integer)(optional): The minimum number of installs to filter apps.
+- **max_installs** (integer)(optional): The maximum number of installs to filter apps.
+- **categories[]** (array of strings)(optional): The categories to filter apps. Each category should be a string.
+- **sdks[]** (array of strings)(optional): The SDKs to filter apps. SDK slug or ID should be used.
+
+&nbsp;
+
+### Request Example
+```bash
+curl --location --globoff 'https://appwisp.com/api/1.0/appstore/apps?offset=0&take=30&min_installs=100000&query=facebook&categories[]=6005'
+```
+
+&nbsp;
+
+### Response Example (200)
+
+```json
+{
+    "list": [
+        {
+            "id": "284882215",
+            "title": "Facebook",
+            "source": "appstore",
+            "api_url": "https://appwisp.com/api/1.0/appstore/app/284882215",
+            "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/55/ac/80/55ac808e-8c45-8656-deee-d9d2696bd1cb/Icon-Production-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+            "bundle_id": "com.facebook.Facebook",
+            "store_url": "https://apps.apple.com/us/app/id284882215"
+        },
+        {
+            "id": "454638411",
+            "title": "Messenger",
+            "source": "appstore",
+            "api_url": "https://appwisp.com/api/1.0/appstore/app/454638411",
+            "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/28/85/24/2885242b-5a47-cf4a-ed38-b5ab126554fd/AppIcon-0-0-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/512x512bb.jpg",
+            "bundle_id": "com.facebook.Messenger",
+            "store_url": "https://apps.apple.com/us/app/id454638411"
+        },
+        {
+            "id": "1285713171",
+            "title": "Messenger Kids",
+            "source": "appstore",
+            "api_url": "https://appwisp.com/api/1.0/appstore/app/1285713171",
+            "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1e/46/12/1e4612fc-74cd-8636-6f2d-7e25fdb3331f/icon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+            "bundle_id": "com.facebook.talk",
+            "store_url": "https://apps.apple.com/us/app/id1285713171"
+        },
+        {
+            "id": "656987566",
+            "title": "Text Faces for Texting",
+            "source": "appstore",
+            "api_url": "https://appwisp.com/api/1.0/appstore/app/656987566",
+            "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/11/83/ef/1183efd3-1115-68de-853c-86e3babf6c41/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/512x512bb.jpg",
+            "bundle_id": "com.xiaomi.FacebookFont",
+            "store_url": "https://apps.apple.com/us/app/id656987566"
+        },
+        {
+            "id": "1402555375",
+            "title": "Profile Analyzer: View Stats+",
+            "source": "appstore",
+            "api_url": "https://appwisp.com/api/1.0/appstore/app/1402555375",
+            "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1c/a7/ac/1ca7ac1e-2d63-fb8c-a895-a242c0eeef36/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+            "bundle_id": "com.mvh.who-unfriended-me-for-facebook",
+            "store_url": "https://apps.apple.com/us/app/id1402555375"
+        }
+    ],
+    "offset": 0,
+    "ok": true,
+    "has_more": false,
+    "next_page": null
+}
+```

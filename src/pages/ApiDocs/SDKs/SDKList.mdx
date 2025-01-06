@@ -1,0 +1,209 @@
+## GET /api/1.0/sdks
+
+This endpoint retrieves all available SDKs from the AppWisp platform.
+
+### Parameters
+
+None
+
+&nbsp;
+
+### Request Example
+```bash
+curl --location --globoff 'https://appwisp.com/api/1.0/sdks'
+```
+
+&nbsp;
+
+### Response Example (200)
+
+```json
+{
+    "ok": true,
+    "sdks": [
+		{
+			"id": "0faeef49-b9dd-400b-bcb7-fb3800faa19a",
+			"name": "LinkedIn SDK",
+			"description": "The LinkedIn SDK allows developers to integrate LinkedIn features, such as social sharing and authentication, into their applications.",
+			"categories": [
+				{
+					"id": "6d0abc81-7e54-4ede-9e05-b3761e436266",
+					"name": "Social network integration",
+					"slug": "social_network_integration"
+				}
+			],
+			"website": "https://developer.linkedin.com/",
+			"slug": "linkedin-sdk"
+		},
+		{
+			"id": "a12b8863-c4b9-4df4-8ae4-5d379aac97f0",
+			"name": "Google AdMob",
+			"description": "Google AdMob is a mobile advertising platform that allows app developers to monetize their apps through in-app ads.",
+			"categories": [
+				{
+					"id": "2a9c4e67-95f2-4662-bbdd-dc6df541b99b",
+					"name": "Ad networks",
+					"slug": "ad_networks"
+				}
+			],
+			"website": "https://admob.google.com/",
+			"slug": "admob"
+		},
+		{
+			"id": "16040fd7-a674-42ca-9b7c-55f5a6259307",
+			"name": "Chartboost",
+			"description": "Chartboost is an in-app monetization and advertising platform specifically designed for mobile games, helping developers maximize revenue through targeted ads.",
+			"categories": [
+				{
+					"id": "2a9c4e67-95f2-4662-bbdd-dc6df541b99b",
+					"name": "Ad networks",
+					"slug": "ad_networks"
+				}
+			],
+			"website": "https://www.chartboost.com/",
+			"slug": "chartboost"
+		},
+		{
+			"id": "02eacafe-24ce-46fe-aa62-f221a5de1cab",
+			"name": "Sentry",
+			"description": "Sentry is an open-source error tracking and monitoring platform that assists developers in identifying and resolving issues in applications.",
+			"categories": [
+				{
+					"id": "a221b6ae-7e8e-42e6-95ce-7c9640da3f31",
+					"name": "Crash Reporting",
+					"slug": "crash_reporting"
+				}
+			],
+			"website": "https://sentry.io/",
+			"slug": "sentry"
+		},
+		{
+			"id": "2b9acc21-f63d-46e1-ab0d-fa42ee365570",
+			"name": "InMobi",
+			"description": "InMobi is a mobile advertising platform that provides solutions for app monetization, user acquisition, and retargeting.",
+			"categories": [
+				{
+					"id": "2a9c4e67-95f2-4662-bbdd-dc6df541b99b",
+					"name": "Ad networks",
+					"slug": "ad_networks"
+				}
+			],
+			"website": "https://www.inmobi.com/",
+			"slug": "inmobi"
+		},
+		{
+			"id": "0e388594-1b14-4839-8da2-38c48111099d",
+			"name": "LiveChat",
+			"description": "LiveChat is a customer support and chat platform that allows businesses to engage with their website visitors in real-time.",
+			"categories": [
+				{
+					"id": "1577d5c6-86e7-445d-ae89-d450e5963dbf",
+					"name": "Customer Support",
+					"slug": "customer_support"
+				}
+			],
+			"website": "https://www.livechat.com/",
+			"slug": "livechat"
+		},
+		{
+			"id": "fcba1e79-f7bd-4ba1-95f1-3eb841f77933",
+			"name": "Adyen",
+			"description": "Adyen is a global payment platform that enables businesses to accept payments in various currencies and methods, providing a seamless payment experience.",
+			"categories": [
+				{
+					"id": "1a75b28a-38c8-4ec7-a968-a5c04e258608",
+					"name": "Payments",
+					"slug": "payments"
+				}
+			],
+			"website": "https://www.adyen.com/",
+			"slug": "adyen"
+		},
+		{
+			"id": "83d964ea-00ce-461f-976e-00dd83699d80",
+			"name": "Typeform",
+			"description": "Typeform is an online form and survey platform known for its interactive and user-friendly interface, making data collection engaging.",
+			"categories": [
+				{
+					"id": "0dd1371b-3d9e-4eb9-b0ee-be589b661894",
+					"name": "Surveys",
+					"slug": "surveys"
+				}
+			],
+			"website": "https://www.typeform.com/",
+			"slug": "typeform"
+		},
+		{
+			"id": "718d3b0a-43b3-410b-b269-a86d6f3caf48",
+			"name": "UXCam",
+			"description": "UXCam is a user experience analytics tool that helps businesses understand and optimize user interactions within their mobile applications.",
+			"categories": [
+				{
+					"id": "500fc30b-af64-421b-8747-942aac2b4f30",
+					"name": "Analytics",
+					"slug": "analytics"
+				}
+			],
+			"website": "https://uxcam.com/",
+			"slug": "uxcam"
+		},
+		{
+			"id": "c03ce8b4-622b-4a8f-9e6a-0bd7bdf3c1ec",
+			"name": "Jetpack Compose",
+			"description": "Jetpack Compose is a modern UI toolkit by Google for building native Android applications using a declarative programming model.",
+			"categories": [
+				{
+					"id": "6f3f3e40-57bd-4d83-a5dc-aa06f5a8988c",
+					"name": "App development",
+					"slug": "app_development_frameworks"
+				}
+			],
+			"website": "https://developer.android.com/jetpack/compose",
+			"slug": "jetpack-compose"
+		},
+		{
+			"id": "899e494a-e7b3-4d8c-9c97-b8a48d0dc23c",
+			"name": "Umeng",
+			"description": "Umeng is a mobile app analytics and marketing platform, primarily used in the Chinese market, offering insights into user behavior and app performance.",
+			"categories": [
+				{
+					"id": "500fc30b-af64-421b-8747-942aac2b4f30",
+					"name": "Analytics",
+					"slug": "analytics"
+				}
+			],
+			"website": "https://www.umeng.com/",
+			"slug": "umeng-common-asms"
+		},
+		{
+			"id": "9909f761-8a8f-4d5f-b300-55f5e11fba3f",
+			"name": "Freshdesk",
+			"description": "Freshdesk is a customer support and helpdesk platform that provides tools for ticketing, live chat, and self-service options.",
+			"categories": [
+				{
+					"id": "1577d5c6-86e7-445d-ae89-d450e5963dbf",
+					"name": "Customer Support",
+					"slug": "customer_support"
+				}
+			],
+			"website": "https://freshdesk.com/",
+			"slug": "freshdesk"
+		},
+		{
+			"id": "38a776b9-3637-4fc9-b7f2-34fcaf6ea4cd",
+			"name": "MoPub",
+			"description": "MoPub is a mobile ad serving platform that helps developers monetize their apps through various ad formats.",
+			"categories": [
+				{
+					"id": "2a9c4e67-95f2-4662-bbdd-dc6df541b99b",
+					"name": "Ad networks",
+					"slug": "ad_networks"
+				}
+			],
+			"website": "https://www.mopub.com/",
+			"slug": "mopub"
+		},
+		...
+    ]
+}
+```

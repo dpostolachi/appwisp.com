@@ -1,0 +1,389 @@
+schema {
+  query: RootQueryType
+}
+
+"""Exposes a URL that specifies the behavior of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behavior of this scalar."""
+  url: String!
+) on SCALAR
+
+type AndroidApp implements Node {
+  androidSdks(after: String, before: String, first: Int, last: Int): AndroidSdkConnection
+
+  """The ID of an object"""
+  id: ID!
+  packageName: String!
+  playstoreData: PlaystoreAppData
+}
+
+type AndroidAppConnection {
+  count: Int!
+  edges: [AndroidAppEdge]
+  pageInfo: PageInfo!
+}
+
+type AndroidAppEdge {
+  cursor: String
+  node: AndroidApp
+}
+
+type AndroidCategory implements Node {
+  """The ID of an object"""
+  id: ID!
+  name: String!
+  slug: String!
+}
+
+type AndroidSdk implements Node {
+  androidApps(after: String, before: String, categories: [String!], first: Int, last: Int, maxInstalls: Int, minInstalls: Int, sort: [PlaystoreAppSort!]): AndroidAppConnection
+  categories(after: String, before: String, first: Int, last: Int): AndroidSdkCategoryConnection
+  description: String
+  icon: String
+
+  """The ID of an object"""
+  id: ID!
+  iosApps(after: String, before: String, categories: [String!], first: Int, last: Int, maxInstalls: Int, minInstalls: Int, sort: [AppstoreAppSort!]): IosAppConnection
+  name: String!
+  slug: String!
+  website: String
+}
+
+type AndroidSdkCategory implements Node {
+  androidSdks(after: String, before: String, first: Int, last: Int): AndroidSdkConnection
+
+  """The ID of an object"""
+  id: ID!
+  name: String!
+  slug: String!
+  totalApps: Int!
+}
+
+type AndroidSdkCategoryConnection {
+  count: Int!
+  edges: [AndroidSdkCategoryEdge]
+  pageInfo: PageInfo!
+}
+
+type AndroidSdkCategoryEdge {
+  cursor: String
+  node: AndroidSdkCategory
+}
+
+type AndroidSdkConnection {
+  apksProcessed: Int!
+  appCount: Int!
+  count: Int!
+  edges: [AndroidSdkEdge]
+  pageInfo: PageInfo!
+}
+
+type AndroidSdkEdge {
+  cursor: String
+  node: AndroidSdk
+}
+
+type AppstoreAppData implements Node {
+  category: AppstoreCategory
+  contentRating: String
+  currency: String
+  currentVersionReviews: Int
+  currentVersionScore: Float
+  description: String
+  developer: AppstoreDeveloper
+  free: Boolean
+  icon: Image
+
+  """The ID of an object"""
+  id: ID!
+  installs: String
+  languages: [String!]!
+  maxInstalls: Int
+  minInstalls: Int
+  packageName: String!
+  price: Float
+  releaseNotes: String
+  released: DateTime
+  requiredOsVersion: String
+  score: Float
+  scoreCount: Int
+  screenshots: [Image!]
+  title: String
+  updated: DateTime
+  version: String
+}
+
+input AppstoreAppSort {
+  direction: SortDirection!
+  field: AppstoreAppSortField!
+}
+
+enum AppstoreAppSortField {
+  FREE
+  MAX_INSTALLS
+  MIN_INSTALLS
+  PRICE
+  RANDOM
+  RATINGS
+  RELEASED
+  SCORE
+  TITLE
+  UPDATED
+}
+
+type AppstoreCategory implements Node {
+  """The ID of an object"""
+  id: ID!
+  name: String!
+}
+
+type AppstoreCategoryConnection {
+  count: Int!
+  edges: [AppstoreCategoryEdge]
+  pageInfo: PageInfo!
+}
+
+type AppstoreCategoryEdge {
+  cursor: String
+  node: AppstoreCategory
+}
+
+type AppstoreDeveloper implements Node {
+  address: String
+  countryCode: String
+  countryName: String
+  email: String
+
+  """The ID of an object"""
+  id: ID!
+  name: String!
+  playstoreDeveloper: PlaystoreDeveloper
+  url: String
+  website: String
+}
+
+"""
+The `Date` scalar type represents a date. The Date appears in a JSON
+response as an ISO8601 formatted string, without a time component.
+"""
+scalar Date
+
+"""
+The `DateTime` scalar type represents a date and time in the UTC
+timezone. The DateTime appears in a JSON response as an ISO8601 formatted
+string, including UTC timezone ("Z"). The parsed date and time string will
+be converted to UTC if there is an offset.
+"""
+scalar DateTime
+
+type Histogram {
+  five: Int
+  four: Int
+  one: Int
+  three: Int
+  two: Int
+}
+
+type Image {
+  image(format: ImageFormat!, height: Int!, width: Int!): ImageOutput!
+}
+
+"""Image format"""
+enum ImageFormat {
+  """AVIF"""
+  AVIF
+
+  """JPEG"""
+  JPG
+
+  """PNG"""
+  PNG
+
+  """WEBP"""
+  WEBP
+}
+
+type ImageOutput {
+  base64: String!
+  url: String!
+}
+
+type IosApp implements Node {
+  appstoreData: AppstoreAppData
+
+  """The ID of an object"""
+  id: ID!
+  iosSdks(after: String, before: String, first: Int, last: Int): AndroidSdkConnection
+  packageName: String!
+}
+
+type IosAppConnection {
+  count: Int!
+  edges: [IosAppEdge]
+  pageInfo: PageInfo!
+}
+
+type IosAppEdge {
+  cursor: String
+  node: IosApp
+}
+
+interface Node {
+  """The ID of the object."""
+  id: ID!
+}
+
+type OverviewStats {
+  androidApps: Int!
+  iosApps: Int!
+  processedApks: Int!
+  processedIpas: Int!
+}
+
+type PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+type PlaystoreAppData implements Node {
+  adSupported: Boolean
+  androidMaxVersion: String
+  androidVersion: String
+  androidVersionText: String
+  available: Boolean
+  categories: [PlaystoreCategory!]
+  comments: [String!]
+  contentRating: String
+  contentRatingDescription: String
+  currency: String
+  description: String
+  descriptionHtml: String
+  developer: PlaystoreDeveloper
+  developerEmail: String
+  developerInternalId: String
+  discountEndDate: DateTime
+  earlyAccessEnabled: Boolean
+  free: Boolean
+  genre: PlaystoreGenre
+  headerImage: Image
+  histogram: Histogram
+  icon: Image
+
+  """The ID of an object"""
+  id: ID!
+  installs: String
+  isAvailableInPlayPass: Boolean
+  maxInstalls: Int
+  minInstalls: Int
+  offersIap: Boolean
+  originalPrice: Float
+  packageName: String!
+  preregister: Boolean
+  previewVideo: String
+  price: Float
+  priceText: String
+  privacyPolicy: String
+  ratings: Int
+  recentChanges: String
+  released: Date
+  reviews: Int
+  score: Float
+  scoreText: String
+  screenshots: [Image!]
+  summary: String
+  title: String
+  updated: DateTime
+  version: String
+  video: String
+  videoImage: String
+}
+
+input PlaystoreAppSort {
+  direction: SortDirection!
+  field: PlaystoreAppSortField!
+}
+
+enum PlaystoreAppSortField {
+  FREE
+  MAX_INSTALLS
+  MIN_INSTALLS
+  OFFERS_IAP
+  PRICE
+  RANDOM
+  RATINGS
+  RELEASED
+  REVIEWS
+  SCORE
+  TITLE
+  UPDATED
+}
+
+type PlaystoreCategory implements Node {
+  """The ID of an object"""
+  id: ID!
+  name: String!
+}
+
+type PlaystoreCategoryConnection {
+  count: Int!
+  edges: [PlaystoreCategoryEdge]
+  pageInfo: PageInfo!
+}
+
+type PlaystoreCategoryEdge {
+  cursor: String
+  node: PlaystoreCategory
+}
+
+type PlaystoreDeveloper implements Node {
+  address: String
+  countryCode: String
+  countryName: String
+  email: String
+
+  """The ID of an object"""
+  id: ID!
+  name: String!
+  website: String
+}
+
+type PlaystoreGenre implements Node {
+  """The ID of an object"""
+  id: ID!
+  name: String!
+}
+
+type RandomApps {
+  androidApps: [AndroidApp]!
+  iosApps: [IosApp]!
+}
+
+type RootQueryType {
+  allAndroidApps(after: String, before: String, categories: [String!], first: Int, last: Int, maxInstalls: Int, minInstalls: Int, query: String, sdks: [String!], sort: [PlaystoreAppSort!]): AndroidAppConnection
+  allAndroidSdks(after: String, before: String, first: Int, last: Int): AndroidSdkConnection
+  allAndroidSdksCategories(after: String, before: String, first: Int, last: Int): AndroidSdkCategoryConnection
+  allAppstoreCategories(after: String, before: String, first: Int, last: Int): AppstoreCategoryConnection
+  allIosApps(after: String, before: String, categories: [String!], first: Int, last: Int, maxInstalls: Int, minInstalls: Int, query: String, sdks: [String!], sort: [PlaystoreAppSort!]): IosAppConnection
+  allPlaystoreCategories(after: String, before: String, first: Int, last: Int): PlaystoreCategoryConnection
+  node(
+    """The ID of an object."""
+    id: ID!
+  ): Node
+  overviewStats: OverviewStats!
+  randomApps: RandomApps!
+}
+
+enum SortDirection {
+  ASC
+  DESC
+}
+

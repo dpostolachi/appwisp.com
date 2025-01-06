@@ -1,0 +1,11 @@
+const isServer = import.meta.env.SSR
+const {
+    VITE_APP_USE_WEBSOCKET = '',
+    VITE_APP_ENCRYPT_KEY = '',
+    VITE_APP_GRAPHQL_ENDPOINT = '',
+    VITE_APP_BACKEND_GRAPHQL_ENDPOINT = '',
+} = import.meta.env
+
+export const USE_WEBSOCKET = Boolean( VITE_APP_USE_WEBSOCKET )
+export const ENCRYPT_KEY = VITE_APP_ENCRYPT_KEY
+export const GRAPHQL_ENDPOINT = isServer ? VITE_APP_BACKEND_GRAPHQL_ENDPOINT : VITE_APP_GRAPHQL_ENDPOINT
