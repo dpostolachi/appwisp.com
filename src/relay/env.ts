@@ -2,7 +2,7 @@
 import {
 	Environment, RecordSource, Store,
 } from '@react-relay';
-import { GRAPHQL_ENDPOINT } from 'config';
+import { GRAPHQL_ENDPOINT, USE_WEBSOCKET } from 'config';
 import { RelayClientSSR, RelayServerSSR } from '@react-relay';
 import {
 	RelayNetworkLayer,
@@ -31,7 +31,7 @@ const createWSMiddleware = () => {
 			} = req.fetchOpts
 
 			
-			if ( body instanceof FormData ) {
+			if ( body instanceof FormData || !USE_WEBSOCKET ) {
 				return next( req )
 			}
 
